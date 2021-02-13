@@ -38,3 +38,32 @@ func TestMutilpleReturn2Value(t *testing.T) {
 	// t.Log(a, _) // cannot use _ as a value or type (it's using for ignore variable)
 	t.Log(a)
 }
+
+// changable paramaters length
+func getSum(ops ...int) int {
+	ret := 0
+	for _, v := range ops {
+		ret += v
+	}
+	return ret
+}
+
+func TestVarParam(t *testing.T) {
+	t.Log(getSum(10, 20))
+	t.Log(getSum(10, 20, 30))
+}
+
+func clear() {
+	fmt.Print("Clear resources")
+}
+
+// defer func, fianlly execute
+func TestDefer(t *testing.T) {
+	t.Log("Started")
+
+	defer clear()
+
+	t.Log("Ongoing")
+
+	panic("Fatal error") // urgent issue, but defer will execute, next code will be blocked
+}
