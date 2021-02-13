@@ -22,3 +22,11 @@ func TestStringInit(t *testing.T) {
 	t.Logf("unicode %x", c[0])
 	t.Logf("utf-8 %x", s)
 }
+
+func TestStringRune(t *testing.T) {
+	s := "我最喜欢源源了"
+
+	for _, c := range s {
+		t.Logf("%[1]c %[1]d", c) // use first parameters too. but %[1]c is char, %[1]d is code
+	}
+}
