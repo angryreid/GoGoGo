@@ -11,3 +11,7 @@ m1 := map[string]int{}
 m2 := make(map[string]int, 10/*Initial Capacity*/)
 
 ```
+
+### make
+
+use make to define a `map`, `slice`, `channel`
