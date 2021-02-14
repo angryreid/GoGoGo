@@ -16,3 +16,20 @@
 ## Remote Package
 
 `go get -u(?) url`
+
+### dependency issue
+
+After go 1.6
+
+### Denpendency Finding
+
+1. searching `verdor` folder in current package
+2. searing outside folder until `src/vendor`
+3. searching in `GOPATH`
+4. searching in `GIROOT`
+
+### Vendor Package manage tik
+
+1. godep (tools/)
+2. glide (Masterminds/)
+3. dep   (golang/)
