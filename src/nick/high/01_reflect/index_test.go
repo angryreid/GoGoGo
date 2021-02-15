@@ -30,3 +30,9 @@ func TestBasicType(t *testing.T) {
 	CheckType(f)
 	CheckType(&f) //Unknown *float64
 }
+
+// func TestType(t *testing.T) {
+// 	str := "sdfd"
+// 	elems, ok := str.(string)
+// 	t.Log(ok)
+// }
