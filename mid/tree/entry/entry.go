@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"go-learing/mid/tree"
-	"go-learing/mid/trees"
 )
 
 func main() {
