@@ -11,6 +11,15 @@ type  Retriever interface {
 	Get(url string) string
 }
 
+type  Poster interface {
+	Post(url string, form map[string]string) bool
+}
+
+type Seesion interface {
+	Retriever
+	Poster
+}
+
 func download(r Retriever) string {
 	return r.Get("http://www.dapenti.com")
 }
@@ -30,6 +39,7 @@ func main() {
 	r = mock.MRetriever{Contents: "google.com"}
 	inspect(r)
 
+
 	// Type Assertion
 	mockRetriever := r.(mock.MRetriever)
 	fmt.Println("mockRetriever:", mockRetriever.Contents)
@@ -45,5 +55,5 @@ func main() {
 	realRetriever := r.(*real.Retriever)
 	fmt.Println("realRetriever", realRetriever.UserAgent)
 
-
+	//var s Seesion
 }

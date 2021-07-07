@@ -18,4 +18,14 @@ func main() {
 	root.Left.Right.Print() // 100
 	fmt.Println("Tree Traverse:")
 	root.Traverse()
+	//Interesting Functional.
+	root.TraverseFunc(func (n *tree.Node) {
+		n.Print()
+	})
+
+	count := 0
+	root.TraverseFunc(func (n *tree.Node) {
+		count++
+	})
+	fmt.Println("Node Counting: ", count)
 }
