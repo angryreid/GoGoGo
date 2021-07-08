@@ -2,6 +2,7 @@ package main
 
 import (
 	"go-learing/mid/errhanding/fileListingServer/fileListing"
+	"log"
 	"net/http"
 	"os"
 )
@@ -11,6 +12,7 @@ type appHandler func(writer http.ResponseWriter, request *http.Request) error
 func errWrapper(handler appHandler) func(http.ResponseWriter, *http.Request) {
 	return func(writer http.ResponseWriter, request *http.Request) {
 		err := handler(writer, request)
+		log.Println("Log Error", err.Error())
 		if err != nil {
 			code := http.StatusOK
 			switch {
