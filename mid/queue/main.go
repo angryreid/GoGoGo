@@ -1,7 +1,9 @@
 package queue
 
-type  Queue []int
+type Queue []int
 
+// Push the element into the queue
+//		e.g. q.Push(1)
 func (q *Queue) Push(v int) {
 	*q = append(*q, v)
 }
