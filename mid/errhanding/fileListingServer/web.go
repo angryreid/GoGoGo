@@ -5,6 +5,7 @@ import (
 	"go-learing/mid/errhanding/fileListingServer/fileListing"
 	"log"
 	"net/http"
+	_ "net/http/pprof"
 	"os"
 )
 
