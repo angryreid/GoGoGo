@@ -1,15 +1,13 @@
 package main
 
 import (
-	"go-learing/crawler/fetcher"
+	"go-learing/crawler/engine"
+	"go-learing/crawler/zhenai/parser"
 )
 
 func main() {
-
-	bytes, err := fetcher.Fetch("http://www.zhenai.com/zhenghun")
-	if err != nil {
-		panic(err)
-	}
-	ParserCityList(bytes)
-
+	engine.Run(engine.Request{
+		Url:        "http://www.zhenai.com/zhenghun",
+		ParserFunc: parser.ParserCityList,
+	})
 }

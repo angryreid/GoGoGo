@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"fmt"
 	"go-learing/crawler/engine"
 	"log"
 	"regexp"
@@ -14,12 +15,15 @@ func ParserCityList(contents []byte) engine.ParserResult {
 
 	result := engine.ParserResult{}
 	for _, match := range matches {
-		//fmt.Printf("City: %s, URL: %s\n", match[2], match[1])
+		result.Items = append(result.Items, string(match[2]))
+		fmt.Printf("City: %s, URL: %s\n", match[2], match[1])
+		// match[2] city name
+		// match[1] city URL
 		result.Request = append(result.Request, engine.Request{
 			Url:        string(match[1]),
 			ParserFunc: engine.NilParser,
 		})
 	}
-	log.Printf("fetched all city counts: %d\n", len(matches))
+	log.Printf("cityList: fetched all city counts: %d\n", len(matches))
 	return result
 }

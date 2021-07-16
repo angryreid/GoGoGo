@@ -13,6 +13,7 @@ func Run(seeds ...Request) {
 
 	for len(requests) > 0 {
 		r := requests[0]
+		log.Printf("Engine: fetching url %s\n", r.Url)
 		requests = requests[1:]
 		body, err := fetcher.Fetch(r.Url)
 		if err != nil {
@@ -20,5 +21,10 @@ func Run(seeds ...Request) {
 			continue
 		}
 		parseResult := r.ParserFunc(body)
+		requests = append(requests, parseResult.Request...)
+
+		for _, item := range parseResult.Items {
+			log.Printf("Got item %s", item)
+		}
 	}
 }

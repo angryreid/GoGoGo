@@ -1,1 +1,1 @@
-git pull && git add -A && git commit -m "Interrupting by Emma's Requests" && git push
+git pull && git add -A && git commit -m "commit" && git push
