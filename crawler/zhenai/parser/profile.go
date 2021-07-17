@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"fmt"
 	"go-learing/crawler/engine"
 	"go-learing/crawler/model"
 	"regexp"
@@ -24,7 +25,7 @@ var carRe = regexp.MustCompile(`<td><span class="label">是否购车：</span><s
 var guessRe = regexp.MustCompile(`<a class="exp-user-name"[^>]*href="(http://album.zhenai.com/u/[\d]+)">([^<]+)</a>`)
 var idUrlRe = regexp.MustCompile(`http://album.zhenai.com/u/([\d]+)`)
 
-func ParseProfile(contents []byte, url, name string) engine.ParserResult {
+func ParseProfile(contents []byte, name string) engine.ParserResult {
 
 	profile := model.Profile{Name: name}
 
@@ -55,6 +56,8 @@ func ParseProfile(contents []byte, url, name string) engine.ParserResult {
 	result := engine.ParserResult{
 		Items: []interface{}{profile},
 	}
+
+	fmt.Printf("Fetched User, %v\n", profile)
 	return result
 }
 

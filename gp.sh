@@ -1,1 +1,1 @@
-git pull && git add -A && git commit -m "commit" && git push
+git pull && git add -A && git commit -m "All single task done" && git push
